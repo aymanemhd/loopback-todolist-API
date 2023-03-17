@@ -3,6 +3,15 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class Todo extends Entity {
   @property({
+    type: 'string',
+  })
+  remindAtAddress?: string; // address,city,zipcode
+
+  @property({
+    type: 'string',
+  })
+  remindAtGeo?: string; // latitude,longitude
+  @property({
     type: 'number',
     id: true,
     generated: false,
@@ -24,7 +33,6 @@ export class Todo extends Entity {
     type: 'boolean',
   })
   isComplete?: boolean;
-
 
   constructor(data?: Partial<Todo>) {
     super(data);

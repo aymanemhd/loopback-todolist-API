@@ -2,10 +2,19 @@ import {inject, Provider} from '@loopback/core';
 import {getService} from '@loopback/service-proxy';
 import {GeocoderDataSource} from '../datasources';
 
+export interface GeiPount {
+  /**
+   * latiyude
+   */
+  y: number;
+  /**
+   * latiyude
+   */
+  x: number;
+}
+
 export interface Geocoder {
-  // this is where you define the Node.js methods that will be
-  // mapped to REST/SOAP/gRPC operations as stated in the datasource
-  // json file.
+  geocode(address: string): Promise<GeiPount[]>;
 }
 
 export class GeocoderProvider implements Provider<Geocoder> {
